@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Space+Grotesk:wght@500;700&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../style.css" />
+  </head>
+
+  <body data-page="profile">
+    <header class="topbar">
+      <div class="container nav">
+        <a class="brand" href="../index.html"
+          ><span class="brand-badge">H</span><span>HelpHub AI</span></a
+        >
+        <nav class="nav-links">
+          <a href="./dashboard.html">Dashboard</a
+          ><a href="./onboarding.html">Onboarding</a
+          ><a data-nav="profile" href="./profile.html" class="active"
+            >Profile</a
+          >
+        </nav>
+      </div>
+    </header>
+    <main class="container">
+      <section class="page-hero">
+        <div class="panel fade-in delay-1">
+          <p class="eyebrow">Profile</p>
+          <h1 style="font-size: clamp(2.2rem, 4vw, 4rem)" data-profile-name="">
+            Ayesha Khan
+          </h1>
+          <p>
+            <span data-profile-role="">Both</span> •
+            <span data-profile-location="">Karachi</span>
+          </p>
+        </div>
+      </section>
+      <section class="profile-grid section">
+        <div class="stack">
+          <div class="panel fade-in delay-2">
+            <p class="section-kicker">Public profile</p>
+            <h2>Skills and reputation</h2>
+            <div class="metric fade-in delay-1">
+              <span>Trust score</span><strong data-profile-trust="">92%</strong>
+            </div>
+            <div class="metric fade-in delay-2">
+              <span>Contributions</span
+              ><strong data-profile-contributions="">31</strong>
+            </div>
+            <div class="stack">
+              <div>
+                <strong>Skills</strong>
+                <div
+                  class="tag-row fade-in delay-3"
+                  data-profile-skills=""
+                  style="margin-top: 10px"
+                >
+                  <span class="tag">Figma</span><span class="tag">UI/UX</span
+                  ><span class="tag">HTML/CSS</span
+                  ><span class="tag">Career Guidance</span>
+                </div>
+              </div>
+              <div>
+                <strong>Badges</strong>
+                <div
+                  class="tag-row"
+                  data-profile-badges=""
+                  style="margin-top: 10px"
+                >
+                  <span class="tag">Design Ally</span
+                  ><span class="tag">Fast Responder</span
+                  ><span class="tag">Top Mentor</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <form class="form-card stack fade-in delay-3" data-profile-form="">
+          <p class="section-kicker">Edit profile</p>
+          <h2>Update your identity</h2>
+          <div class="profile-form">
+            <div class="field">
+              <label>Name</label><input name="name" type="text" />
+            </div>
+            <div class="field">
+              <label>Location</label><input name="location" type="text" />
+            </div>
+            <div class="field-full">
+              <label>Skills</label><input name="skills" type="text" />
+            </div>
+            <div class="field-full">
+              <label>Interests</label><input name="interests" type="text" />
+            </div>
+          </div>
+          <button class="btn btn-primary" type="submit">Save profile</button>
+        </form>
+      </section>
+    </main>
+    <script>
+      if (document.body.dataset.page === "profile") {
+        const elements = document.querySelectorAll(".fade-in");
+
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("show");
+              } else {
+                entry.target.classList.remove("show"); 
+              }
+            });
+          },
+          { threshold: 0.2 },
+        );
+
+        elements.forEach((el) => observer.observe(el));
+      }
+    </script>
+  </body>
+</html>
